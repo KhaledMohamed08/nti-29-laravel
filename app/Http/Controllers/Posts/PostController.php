@@ -7,6 +7,7 @@ use App\Http\Requests\CreatePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -17,7 +18,7 @@ class PostController extends Controller
     {
         // $posts = Post::all();
         // $posts->load(['user']);
-        $posts = Post::where('is_active', true)->with('user')->get();
+        $posts = Post::where('is_active', true)->with('user')->orderBy('created_at', 'desc')->get();
         // dd($posts[0]);
         // return view('posts.index', ['posts' => $posts]);
         return view('posts.index', compact('posts'));
@@ -46,6 +47,7 @@ class PostController extends Controller
         //     'title.required' => 'Type Title Ya Stupide'
         // ]);
 
+        $data['user_id'] = Auth::id();
         Post::create($data);
 
         return redirect()->route('posts.index')->with('success', 'Post Created Successfully');

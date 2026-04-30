@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 @section('title', "Edit Post")
 @section('content')
     <form class="m-5" action="{{ route('posts.update', $post->id) }}" method="POST">

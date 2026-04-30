@@ -1,8 +1,9 @@
-@extends('layout.main')
+@extends('layouts.main')
 @section('title', "Create Post")
 @section('content')
     <form class="m-5" action="{{ route('posts.store') }}" method="POST">
-        <input type="hidden" name="user_id" value="{{ random_int(1, 10) }}">
+        {{-- <input type="hidden" name="user_id" value="{{ random_int(1, 10) }}"> --}}
+        {{-- <input type="hidden" name="user_id" value="{{ auth()->id() }}"> --}}
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Post title*</label>
             <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Post title">

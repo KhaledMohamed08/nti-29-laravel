@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 @section('content')
     <div class="post m-5">
         <h1>{{ $post->title }}</h1>

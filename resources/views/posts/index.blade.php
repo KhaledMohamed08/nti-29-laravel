@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.main')
 @section('content')
     <a href="{{ route('posts.create') }}" class="btn btn-primary mt-3">Create New Post</a>
 

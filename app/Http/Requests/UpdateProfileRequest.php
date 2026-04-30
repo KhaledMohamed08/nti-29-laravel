@@ -4,16 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Override;
 
-class CreatePostRequest extends FormRequest
+class UpdateProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,9 +23,7 @@ class CreatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'user_id' => 'required|numeric',
-            'title' => 'required|string|max:300',
-            'content' => ['required', 'string'],
+            //
         ];
     }
 }
